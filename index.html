@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Suggestive%20
+Material+Icons" rel="stylesheet" />
 
   <title>MUSIC — ENEREMIT</title>
   <meta name="title" content="MUSIC — ENEREMIT" />
@@ -27,8 +28,8 @@
     body{
       margin:0;
       font-family:"Karla", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size:1.2rem; /* 12px like Bruges option */
-      line-height:1;    /* Bruges body is 1, then content blocks set their own */
+      font-size:1.2rem; /* 12px */
+      line-height:1;    /* match Bruges base */
       color:#2c2c2c;
       background:#fff;
       -webkit-text-size-adjust:100%;
@@ -40,8 +41,9 @@
     .wrap{
       max-width:750px;
       margin:0 auto;
-      padding:70px 16px 80px; /* slightly tighter, closer to Bruges spacing */
+      padding:70px 16px 80px;
       text-align:left !important;
+      line-height:1.55; /* Bruges content rhythm */
     }
 
     a, a:link, a:visited{
@@ -60,8 +62,8 @@
       --gp-song:#613d12;
       --gp-artist:#222222;
       --gp-gap:14px;
-      --gp-song-size:12px;   /* match 12px vibe */
-      --gp-artist-size:12px; /* match 12px vibe */
+      --gp-song-size:12px;
+      --gp-artist-size:12px;
     }
 
     #glenplayer07{position:relative;width:100%;margin:0;text-align:left !important;}
@@ -84,12 +86,11 @@
       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    /* tighten spacing between player -> name line -> widget (your pic 2 goal) */
     .mp-desc{
-      margin-top:0.45em;
+      margin-top:0.35em; /* tighter like reference */
       display:block;
       font-size:inherit;
-      line-height:1.55;
+      line-height:inherit; /* inherit wrap rhythm */
       text-align:left !important;
     }
     .mp-desc a{color:#613d12;text-decoration:underline;}
@@ -99,8 +100,8 @@
       width:100%;
       display:block;
       font-size:inherit;
-      line-height:1.55;
-      margin-top:0.55em; /* tighter */
+      line-height:inherit;   /* inherit wrap rhythm */
+      margin-top:0.55em;
       --eneremit-label-color:#222222;
       --eneremit-value-color:#613d12;
       text-align:left !important;
@@ -124,7 +125,7 @@
       display:grid;
       grid-template-columns:max-content minmax(0,1fr);
       align-items:baseline;
-      margin:0.30em 0 0 0; /* slightly tighter than before */
+      margin:0.30em 0 0 0;
       column-gap:0;
       text-align:left !important;
     }
@@ -150,11 +151,11 @@
     }
 
     nav{
-      margin-top:1.15em;  /* tighter */
+      margin-top:1.15em;
       padding-bottom:1.05em;
       border-bottom:1px solid #ededed;
       font-size:inherit;
-      line-height:1.55;
+      line-height:inherit; /* inherit wrap rhythm */
       display:flex;
       gap:12px;
       flex-wrap:wrap;
