@@ -2,642 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.ico">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title></title>
+
   <style>
     *,*::before,*::after{
       box-sizing:border-box;
       -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
       -moz-osx-font-smoothing:grayscale;
-      font-kerning:normal;
     }
 
-    html{font-size:62.5%;height:100%;}
-    body{margin:0;min-height:100%;overflow-x:hidden;}
-
-    :root{
-      --mp-font: var(--font1, "Times New Roman", Times, serif);
-      --mp-size: var(--font-size, 1.2rem);
-      --mp-line: var(--line-height, 1.8);
-      --mp-text: rgb(var(--c-text, 44,44,44));
-      --mp-link: rgb(var(--c-link, 97,61,18));
-      --mp-bg:   rgb(var(--c-bg1, 255,255,255));
-      --mp-border: rgb(var(--c-border, 237,237,237));
-      --mp-acc: rgb(var(--c-acc1, 213,218,253));
-      --gap1: 1.2rem;
-      --gap2: 1.2rem;
-      --gap3: 2.5rem;
-      --round2: 0.8rem;
-    }
-
+    html{font-size:62.5%;}
     body{
-      font-family: var(--mp-font) !important;
-      font-size: var(--mp-size) !important;
-      color: var(--mp-text) !important;
-      background: var(--mp-bg) !important;
-      line-height: 1 !important;
-    }
-
-    #myplaylists{
-      padding:100px 16px 80px;
-      width:100%;
-      line-height: var(--mp-line) !important;
-      -webkit-text-size-adjust:100% !important;
-      text-size-adjust:100% !important;
+      margin:0;
+      font-family:"Times New Roman", Times, serif;
+      font-size:1.2rem;
+      color:#2c2c2c;
+      background:#ffffff;
+      line-height:1.8;
     }
 
     .wrap{
-      width:100%;
       max-width:750px;
       margin:0 auto;
+      padding:100px 16px 80px;
     }
 
-    a,a:link,a:visited{
-      color: var(--mp-link) !important;
-      text-decoration:none!important;
-      transition:all .2s ease;
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active{
+      color:#613d12;
+      text-decoration:none;
+      transition:opacity .2s ease;
     }
 
     a:hover{
       opacity:.85;
-      color: var(--mp-acc) !important;
-    }
-
-    header{margin-bottom:22px;}
-
-    #title{
-      font-size:1.3em;
-      font-weight:700;
-      margin:0 0 10px 0;
-      line-height:1.2;
-      letter-spacing:.06em;
-    }
-
-    nav{
-      display:flex;
-      flex-wrap:nowrap;
-      align-items:baseline;
-      gap:10px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      font-size:11px;
-      line-height:1.2;
-      padding-bottom:12px;
-      border-bottom:1px solid var(--mp-border) !important;
-      -webkit-text-size-adjust:100% !important;
-      text-size-adjust:100% !important;
-    }
-
-    nav a{
-      padding-bottom:2px;
-      flex:0 0 auto;
-      border-bottom:1px solid transparent;
-    }
-
-    nav a:hover{
-      border-bottom-color:rgba(0,0,0,.12) !important;
-    }
-
-    .embed{margin-top:22px;}
-    .embed iframe{
-      width:100%;
-      height:475px;
-      display:block;
-      border:0 !important;
-      background:transparent !important;
-      border-radius: var(--round2, 0) !important;
-    }
-
-    #creds a,#creds a:hover{
-      font-size:10px;
-      position:fixed;
-      right:29px;
-      bottom:20px;
-      text-decoration:none!important;
-      line-height:1;
-      font-family: var(--mp-font) !important;
-      color: rgba(44,44,44,.35) !important;
-    }
-
-    .mp-sidebar{
-      margin: 0 0 18px 0;
+      color:#613d12;
     }
 
     .mp-desc{
-      margin-top: 10px;
+      margin-top:10px;
       display:inline-block;
-      border-bottom: 1px solid rgba(0,0,0,.12);
-      padding-bottom: 2px;
-      font-size: 11px;
-      line-height: 1.2;
-      color: var(--mp-text);
-      -webkit-text-size-adjust:100% !important;
-      text-size-adjust:100% !important;
+      font-size:11px;
+      line-height:1.2;
     }
 
     .mp-desc a{
-      color: var(--mp-link) !important;
-      text-decoration: underline !important;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 1px;
-    }
-
-    :root{
-      --gp-size:38px;
-      --gp-ring:2px;
-      --gp-fill:#613d12;
-      --gp-icon:#f9f9f9;
-      --gp-song:#613d12;
-      --gp-artist:#222222;
-      --gp-gap:14px;
-      --gp-song-size:11px;
-      --gp-artist-size:11px;
-    }
-
-    #glenplayer07{
-      position:relative;
-      width:100%;
-      z-index:1;
-      margin: 0;
-    }
-
-    #glenplayer07 .flamingo{
-      display:flex;
-      align-items:center;
-    }
-
-    #glenplayer07 .circleofdeath{
-      width:var(--gp-size);
-      height:var(--gp-size);
-      border-radius:999px;
-      position:relative;
-      flex:0 0 auto;
-    }
-
-    #glenplayer07 .tinfoil{
-      width:100%;
-      height:100%;
-      border-radius:999px;
-      background:conic-gradient(var(--gp-fill) calc(var(--p,0)*1turn), var(--gp-fill) 0);
-    }
-
-    #glenplayer07 .cherry{
-      position:absolute;
-      inset:var(--gp-ring);
-      border-radius:999px;
-      background:var(--gp-fill);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      -webkit-tap-highlight-color:transparent;
-      user-select:none;
-    }
-
-    #glenplayer07 .material-icons{
-      font-size:14px;
-      color:var(--gp-icon);
-      line-height:1;
-    }
-
-    #glenplayer07 .music-info{
-      margin-left:var(--gp-gap);
-      line-height:1.1;
-      min-width:0;
-    }
-
-    #glenplayer07 .song-name{
-      font-family:inherit;
-      font-size:var(--gp-song-size);
-      text-transform:none;
-      letter-spacing:0;
-      color:var(--gp-song);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    #glenplayer07 .artist-name{
-      margin-top:3px;
-      font-family:inherit;
-      font-size:var(--gp-artist-size);
-      color:var(--gp-artist);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      text-decoration:underline;
     }
 
     #eneremit-activity-widget{
-      width:auto;
-      max-width:100%;
-      display:inline-block;
-      font-family:inherit;
       font-size:11px;
-      line-height:1.55;
+      line-height:1.35;
       margin-top:0.4rem;
-      overflow:hidden;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
       --eneremit-label-color:#222222;
       --eneremit-value-color:#613d12;
     }
 
-    #eneremit-activity-widget a,
-    #eneremit-activity-widget a:link,
-    #eneremit-activity-widget a:visited{
-      border-bottom:0 !important;
-      padding-bottom:0 !important;
-      text-decoration:none !important;
-      color:inherit;
-    }
-
     #eneremit-activity-widget .eneremit-row{
-      width:100%;
       display:grid;
       grid-template-columns:max-content minmax(0,1fr);
-      column-gap:0;
-      align-items:baseline;
-      margin-top:0.35em;
       margin-bottom:0.25rem;
-    }
-    #eneremit-activity-widget .eneremit-row:first-child{margin-top:0;}
-
-    #eneremit-activity-widget .eneremit-label,
-    #eneremit-activity-widget .eneremit-value{
-      font-size:inherit;
-      line-height:1.35;
+      align-items:baseline;
     }
 
     #eneremit-activity-widget .eneremit-label{
       color:var(--eneremit-label-color);
-      font-weight:400;
       white-space:nowrap;
     }
-    #eneremit-activity-widget .eneremit-label::after{content:"\00a0";}
+
+    #eneremit-activity-widget .eneremit-label::after{
+      content:"\00a0";
+    }
 
     #eneremit-activity-widget .eneremit-value{
       color:var(--eneremit-value-color);
-      font-weight:400;
-      min-width:0;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    #eneremit-activity-widget .eneremit-row:hover .eneremit-value{
-      text-decoration:underline;
-      text-decoration-thickness:1px;
-      text-underline-offset:3px;
+    nav{
+      margin-top:22px;
+      padding-bottom:12px;
+      border-bottom:1px solid #ededed;
+      font-size:11px;
+      display:flex;
+      gap:10px;
+      flex-wrap:nowrap;
+      overflow:hidden;
+      white-space:nowrap;
     }
 
-    #eneremit-activity-widget .eneremit-row:focus-visible{
-      outline:1px solid rgba(0,0,0,0.2);
-      outline-offset:3px;
-      border-radius:2px;
+    .embed{
+      margin-top:22px;
     }
 
-    @media (max-width:820px){
-      #myplaylists{padding-top:70px;}
-      nav{gap:8px;font-size:11px;}
-      .embed iframe{height:520px;}
-    }
-
-    @media (max-width:520px){
-      nav{gap:7px;font-size:10px;}
-      #title{font-size:1.2em;}
-      .embed iframe{height:560px;}
-    }
-
-    @media (max-height:430px) and (orientation:landscape){
-      #myplaylists{padding-top:40px;}
-      .embed iframe{height:360px;}
-    }
-
-    @media only screen and (max-width: 820px){
-      #eneremit-activity-widget{
-        width:100%;
-        display:block;
-        overflow:visible;
-      }
-      #eneremit-activity-widget .eneremit-value{
-        white-space:normal;
-        overflow:visible;
-        text-overflow:clip;
-        overflow-wrap:break-word;
-        word-break:normal;
-        hyphens:auto;
-      }
+    .embed iframe{
+      width:100%;
+      height:475px;
+      border:0;
+      border-radius:8px;
     }
   </style>
 </head>
 
 <body>
-  <div id="myplaylists">
-    <div class="wrap">
-      <div class="mp-sidebar">
-        <div id="glenplayer07" data-audio="https://file.garden/ZmN8fWXA7EDNZ5td/Both%20Sides%20Now.mp3">
-          <div class="flamingo">
-            <div class="circleofdeath">
-              <div class="tinfoil" id="gp-ring"></div>
-              <div class="cherry" id="gp-btn" role="button" tabindex="0" aria-label="Play">
-                <i class="material-icons" id="gp-icon">play_arrow</i>
-              </div>
-            </div>
-            <div class="music-info">
-              <div class="song-name">Both Sides Now</div>
-              <div class="artist-name">Joni Mitchell</div>
-            </div>
-          </div>
-        </div>
+  <div class="wrap">
 
-        <div class="mp-desc">
-          <a href="https://lnk.bio/homo" target="_blank" rel="noopener noreferrer">Julián</a>, Puerto Rico
-        </div>
+    <div class="mp-desc">
+      <a href="https://lnk.bio/homo" target="_blank" rel="noopener noreferrer">Julián</a>, Puerto Rico
+    </div>
 
-        <div class="sb-widget sb-widget-eneremit" style="margin-top: var(--gap2);">
-          <div id="eneremit-activity-widget" aria-live="polite">
-            <a class="eneremit-row" id="eneremit-gr-link" href="https://www.goodreads.com/user/show/138343303" target="_blank" rel="noopener noreferrer">
-              <span class="eneremit-label" id="eneremit-gr-label">Last Read:</span>
-              <span class="eneremit-value" id="eneremit-gr-text" data-seed="">-</span>
-            </a>
-            <a class="eneremit-row" id="eneremit-lb-link" href="https://letterboxd.com/eneremit/" target="_blank" rel="noopener noreferrer">
-              <span class="eneremit-label">Last Watched:</span>
-              <span class="eneremit-value" id="eneremit-lb-text" data-seed="">-</span>
-            </a>
-            <a class="eneremit-row" id="eneremit-lfm-link" href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">
-              <span class="eneremit-label" id="eneremit-lfm-label">Last Listened To:</span>
-              <span class="eneremit-value" id="eneremit-lfm-text" data-seed="">-</span>
-            </a>
-          </div>
-        </div>
+    <div id="eneremit-activity-widget">
+      <div class="eneremit-row">
+        <span class="eneremit-label">Now Reading:</span>
+        <span class="eneremit-value">Mommie Dearest - Christina Crawford</span>
       </div>
-
-      <header>
-        <div id="title"></div>
-        <nav aria-label="music links">
-          <a href="https://eneremit.blog/">Home</a>
-          <a href="https://open.spotify.com/user/jorgejulianrdz" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">Last.fm</a>
-          <a href="https://www.discogs.com/user/eneremit" target="_blank" rel="noopener noreferrer">Discogs</a>
-          <a href="https://stats.fm/user/eneremit?range=lifetime" target="_blank" rel="noopener noreferrer">Stats.fm</a>
-          <a href="https://rateyourmusic.com/~eneremit" target="_blank" rel="noopener noreferrer">RYM</a>
-          <a href="https://www.albumoftheyear.org/user/eneremit/" target="_blank" rel="noopener noreferrer">AOTY</a>
-          <a href="https://musicboard.app/eneremit?rel=copy" target="_blank" rel="noopener noreferrer">Musicboard</a>
-          <a href="https://airbuds.fm/eneremit" target="_blank" rel="noopener noreferrer">Airbuds</a>
-        </nav>
-      </header>
-
-      <div class="embed">
-        <iframe src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <div class="eneremit-row">
+        <span class="eneremit-label">Last Watched:</span>
+        <span class="eneremit-value">Ella McCay (2025) dir. James L. Brooks</span>
+      </div>
+      <div class="eneremit-row">
+        <span class="eneremit-label">Last Listened To:</span>
+        <span class="eneremit-value">White Feather Hawk Tail Deer Hunter - Lana Del Rey</span>
       </div>
     </div>
+
+    <nav>
+      <a href="https://eneremit.blog/">Home</a>
+      <a href="https://open.spotify.com/user/jorgejulianrdz" target="_blank">Spotify</a>
+      <a href="https://www.last.fm/user/eneremit" target="_blank">Last.fm</a>
+      <a href="https://www.discogs.com/user/eneremit" target="_blank">Discogs</a>
+      <a href="https://stats.fm/user/eneremit?range=lifetime" target="_blank">Stats.fm</a>
+      <a href="https://rateyourmusic.com/~eneremit" target="_blank">RYM</a>
+      <a href="https://www.albumoftheyear.org/user/eneremit/" target="_blank">AOTY</a>
+      <a href="https://musicboard.app/eneremit?rel=copy" target="_blank">Musicboard</a>
+      <a href="https://airbuds.fm/eneremit" target="_blank">Airbuds</a>
+    </nav>
+
+    <div class="embed">
+      <iframe src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk"
+        loading="lazy"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+
   </div>
-
-  <div id="creds">
-    <a href="https://nouvae.tumblr.com" title="page by nouvae">©</a>
-  </div>
-
-  <script>
-  (function(){
-    function ready(fn){
-      if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
-      else fn();
-    }
-
-    ready(function(){
-      var root=document.getElementById("glenplayer07");
-      if(!root) return;
-
-      var ring=document.getElementById("gp-ring");
-      var btn=document.getElementById("gp-btn");
-      var icon=document.getElementById("gp-icon");
-      var src=root.getAttribute("data-audio")||"";
-
-      var audio=document.createElement("audio");
-      audio.preload="metadata";
-      audio.playsInline=true;
-      audio.setAttribute("playsinline","");
-      audio.setAttribute("webkit-playsinline","");
-      audio.src=src;
-
-      var playing=false;
-
-      function setProg(){
-        var d=audio.duration;
-        var t=audio.currentTime;
-        var p=(d && isFinite(d) && d>0) ? (t/d) : 0;
-        ring.style.setProperty("--p", String(p));
-      }
-
-      function setUI(isPlaying){
-        playing=isPlaying;
-        icon.textContent=isPlaying ? "pause" : "play_arrow";
-        btn.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
-      }
-
-      function toggle(){
-        if(!playing){
-          audio.play().then(function(){ setUI(true); }).catch(function(){ setUI(false); });
-        }else{
-          audio.pause();
-          setUI(false);
-        }
-      }
-
-      btn.addEventListener("click", toggle);
-      btn.addEventListener("keydown", function(e){
-        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); }
-      });
-
-      audio.addEventListener("timeupdate", setProg);
-      audio.addEventListener("loadedmetadata", setProg);
-      audio.addEventListener("ended", function(){
-        audio.currentTime=0;
-        setProg();
-        setUI(false);
-      });
-      audio.addEventListener("pause", function(){ setUI(false); });
-      audio.addEventListener("play", function(){ setUI(true); });
-
-      setUI(false);
-      setProg();
-    });
-  })();
-  </script>
-
-  <script>
-  (function(){
-    "use strict";
-
-    var ENDPOINT="https://eneremit-widget.eneremit.workers.dev/";
-
-    function ready(fn){
-      if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
-      else fn();
-    }
-
-    function safe(s){ return (s==null ? "" : String(s)).trim(); }
-
-    function isBadText(t){
-      t=safe(t);
-      return !t || t==="-" || t==="—";
-    }
-
-    function setIfGood(node, text){
-      var t=safe(text);
-      if(!node || isBadText(t)) return false;
-      node.textContent=t;
-      try{ node.setAttribute("data-seed", t); }catch(e){}
-      return true;
-    }
-
-    function getSeed(node){
-      var t="";
-      try{ t=safe(node && node.getAttribute && node.getAttribute("data-seed")); }catch(e){}
-      return isBadText(t) ? "" : t;
-    }
-
-    function setSeedIfEmpty(node, text){
-      try{
-        if(node && !safe(node.getAttribute("data-seed"))) node.setAttribute("data-seed", safe(text));
-      }catch(e){}
-    }
-
-    function getStorageKeyPrefix(){
-      var host=safe(location && location.hostname).toLowerCase();
-      return host ? ("eneremit_widget@"+host+"::") : "eneremit_widget@unknown::";
-    }
-
-    ready(function(){
-      var el={
-        root:document.getElementById("eneremit-activity-widget"),
-        grText:document.getElementById("eneremit-gr-text"),
-        grLink:document.getElementById("eneremit-gr-link"),
-        grLabel:document.getElementById("eneremit-gr-label"),
-        lbText:document.getElementById("eneremit-lb-text"),
-        lbLink:document.getElementById("eneremit-lb-link"),
-        lfText:document.getElementById("eneremit-lfm-text"),
-        lfLink:document.getElementById("eneremit-lfm-link"),
-        lfLabel:document.getElementById("eneremit-lfm-label")
-      };
-      if(!el.root || !el.grText || !el.lbText || !el.lfText) return;
-
-      var PFX=getStorageKeyPrefix();
-      var LS={
-        grText:PFX+"gr_text",
-        grUrl:PFX+"gr_url",
-        grLabel:PFX+"gr_label",
-        lbText:PFX+"lb_text",
-        lbUrl:PFX+"lb_url",
-        lfText:PFX+"lf_text",
-        lfUrl:PFX+"lf_url",
-        lfLabel:PFX+"lf_label"
-      };
-
-      function loadCachedOrSeed(){
-        var any=false;
-
-        try{
-          any = setIfGood(el.grText, localStorage.getItem(LS.grText)) || any;
-          any = setIfGood(el.lbText, localStorage.getItem(LS.lbText)) || any;
-
-          var grL=safe(localStorage.getItem(LS.grLabel));
-          if(el.grLabel && !isBadText(grL)) { el.grLabel.textContent=grL; setSeedIfEmpty(el.grLabel, grL); any=true; }
-
-          var lfT=safe(localStorage.getItem(LS.lfText));
-          if(!isBadText(lfT)) { el.lfText.textContent=lfT; setSeedIfEmpty(el.lfText, lfT); any=true; }
-
-          var lfL=safe(localStorage.getItem(LS.lfLabel));
-          if(!isBadText(lfL)) { el.lfLabel.textContent=lfL; setSeedIfEmpty(el.lfLabel, lfL); any=true; }
-
-          var grU=safe(localStorage.getItem(LS.grUrl)); if(el.grLink && grU) el.grLink.href=grU;
-          var lbU=safe(localStorage.getItem(LS.lbUrl)); if(el.lbLink && lbU) el.lbLink.href=lbU;
-          var lfU=safe(localStorage.getItem(LS.lfUrl)); if(el.lfLink && lfU) el.lfLink.href=lfU;
-        }catch(e){}
-
-        if(!any){
-          setIfGood(el.grText, getSeed(el.grText));
-          setIfGood(el.lbText, getSeed(el.lbText));
-
-          if(el.grLabel){
-            var grLabSeed=getSeed(el.grLabel);
-            if(!isBadText(grLabSeed)) el.grLabel.textContent=grLabSeed;
-          }
-
-          var lfSeed=getSeed(el.lfText);
-          if(!isBadText(lfSeed)) el.lfText.textContent=lfSeed;
-
-          var lfLabSeed=getSeed(el.lfLabel);
-          if(!isBadText(lfLabSeed)) el.lfLabel.textContent=lfLabSeed;
-        }
-      }
-
-      function saveCached(key, value){
-        try{
-          var v=safe(value);
-          if(isBadText(v)) return;
-          localStorage.setItem(key, v);
-        }catch(e){}
-      }
-
-      async function fetchJSON(){
-        var url=ENDPOINT + (ENDPOINT.indexOf("?")>=0 ? "&" : "?") + "_=" + Date.now();
-        var res=await fetch(url, { cache:"no-store", credentials:"omit" });
-        if(!res.ok) throw new Error("HTTP "+res.status);
-        return await res.json();
-      }
-
-      async function refreshFromEndpoint(){
-        try{
-          var data=await fetchJSON();
-          if(!data) return;
-
-          if(data.goodreads){
-            var grLabel=safe(data.goodreads.label);
-            if(el.grLabel && !isBadText(grLabel)){
-              el.grLabel.textContent=grLabel;
-              setSeedIfEmpty(el.grLabel, grLabel);
-              saveCached(LS.grLabel, grLabel);
-            }
-
-            if(setIfGood(el.grText, data.goodreads.text)) saveCached(LS.grText, data.goodreads.text);
-            if(el.grLink && safe(data.goodreads.url)){ el.grLink.href=data.goodreads.url; saveCached(LS.grUrl, data.goodreads.url); }
-          }
-
-          if(data.letterboxd){
-            if(setIfGood(el.lbText, data.letterboxd.text)) saveCached(LS.lbText, data.letterboxd.text);
-            if(el.lbLink && safe(data.letterboxd.url)){ el.lbLink.href=data.letterboxd.url; saveCached(LS.lbUrl, data.letterboxd.url); }
-          }
-
-          if(data.lastfm){
-            var label=safe(data.lastfm.label);
-            if(!isBadText(label)){
-              el.lfLabel.textContent=label;
-              setSeedIfEmpty(el.lfLabel, label);
-              saveCached(LS.lfLabel, label);
-            }
-
-            if(setIfGood(el.lfText, data.lastfm.text)) saveCached(LS.lfText, data.lastfm.text);
-
-            if(el.lfLink && safe(data.lastfm.url)){ el.lfLink.href=data.lastfm.url; saveCached(LS.lfUrl, data.lastfm.url); }
-          }
-        }catch(e){}
-      }
-
-      loadCachedOrSeed();
-      refreshFromEndpoint();
-
-      setInterval(refreshFromEndpoint, 60*1000);
-
-      document.addEventListener("visibilitychange", function(){
-        if(!document.hidden) refreshFromEndpoint();
-      });
-    });
-  })();
-  </script>
 </body>
 </html>
