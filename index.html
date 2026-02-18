@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
   <title>MUSIC</title>
   <meta name="title" content="MUSIC" />
   <meta property="og:title" content="MUSIC" />
-  <meta property="twitter:title" content="MUSIC" />
+  <meta name="twitter:title" content="MUSIC" />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="https://eneremit.blog/favicon.ico" />
   <link rel="shortcut icon" href="https://eneremit.blog/favicon.ico" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
   <style>
     *,*::before,*::after{box-sizing:border-box;}
@@ -27,8 +23,8 @@
     }
     body{
       margin:0;
-      font-family:"Karla", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size:1.6rem;
+      font-family:"Times New Roman", Times, serif;
+      font-size:1.2rem;
       line-height:1.8;
       color:#2c2c2c;
       background:#fff;
@@ -41,7 +37,7 @@
     .wrap{
       max-width:750px;
       margin:0 auto;
-      padding:70px 16px 80px;
+      padding:70px 16px 80px; /* tightened to match pic 2 */
       text-align:left !important;
     }
 
@@ -64,8 +60,8 @@
       --gp-song:#613d12;
       --gp-artist:#222222;
       --gp-gap:14px;
-      --gp-song-size:1.6rem;
-      --gp-artist-size:1.6rem;
+      --gp-song-size:11px;
+      --gp-artist-size:11px;
     }
 
     #glenplayer07{position:relative;width:100%;margin:0;text-align:left !important;}
@@ -78,21 +74,21 @@
       -webkit-tap-highlight-color:transparent;user-select:none;
     }
     #glenplayer07 .material-icons{font-size:14px;color:var(--gp-icon);line-height:1;}
-    #glenplayer07 .music-info{margin-left:var(--gp-gap);line-height:1.25;min-width:0;}
+    #glenplayer07 .music-info{margin-left:var(--gp-gap);line-height:1.1;min-width:0;}
     #glenplayer07 .song-name{
       font-family:inherit;font-size:var(--gp-song-size);color:var(--gp-song);
       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
     #glenplayer07 .artist-name{
-      margin-top:2px;font-family:inherit;font-size:var(--gp-artist-size);color:var(--gp-artist);
+      margin-top:3px;font-family:inherit;font-size:var(--gp-artist-size);color:var(--gp-artist);
       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
     .mp-desc{
-      margin-top:18px;
+      margin-top:14px; /* slightly tighter */
       display:block;
-      font-size:inherit;
-      line-height:1.8;
+      font-size:11px;
+      line-height:1.2;
       text-align:left !important;
     }
     .mp-desc a{color:#613d12;text-decoration:underline;}
@@ -101,10 +97,10 @@
     #eneremit-activity-widget{
       width:100%;
       display:block;
-      font-size:inherit;
-      line-height:1.8;
-      margin-top:18px;
-      --eneremit-label-color:#2c2c2c;
+      font-size:11px;
+      line-height:1.55;
+      margin-top:12px; /* slightly tighter */
+      --eneremit-label-color:#222222;
       --eneremit-value-color:#613d12;
       text-align:left !important;
     }
@@ -126,11 +122,12 @@
       display:grid;
       grid-template-columns:max-content minmax(0,1fr);
       align-items:baseline;
-      margin:0.9rem 0 0 0;
+      margin:0.55em 0 0 0; /* more like pic 2 line spacing */
       column-gap:0;
       text-align:left !important;
     }
     #eneremit-activity-widget .eneremit-row:first-child{margin-top:0;}
+
     #eneremit-activity-widget .eneremit-label{
       color:var(--eneremit-label-color);
       white-space:nowrap;
@@ -147,20 +144,20 @@
     }
 
     nav{
-      margin-top:26px;
-      padding-bottom:16px;
+      margin-top:22px; /* closer to pic 2 */
+      padding-bottom:12px; /* closer to pic 2 */
       border-bottom:1px solid #ededed;
-      font-size:inherit;
-      line-height:1.8;
+      font-size:11px;
+      line-height:1.2;
       display:flex;
-      gap:22px;
+      gap:12px;
       flex-wrap:wrap;
       white-space:normal;
       text-align:left !important;
     }
     nav a{flex:0 0 auto;}
 
-    .embed{margin-top:30px;}
+    .embed{margin-top:22px;} /* closer to pic 2 */
     .embed iframe{
       width:100%;
       height:475px;
@@ -170,13 +167,17 @@
     }
 
     @media (max-width:820px){
-      .wrap{padding:60px 16px 70px;}
-      nav{gap:14px;}
+      .wrap{padding:60px 16px 70px;} /* tightened */
+      nav{gap:10px;font-size:12px;}
+      .mp-desc{font-size:12px;}
+      #eneremit-activity-widget{font-size:12px;}
+      :root{--gp-song-size:12px;--gp-artist-size:12px;}
       .embed iframe{height:520px;}
     }
 
     @media (max-width:520px){
-      .wrap{padding:60px 16px 70px;}
+      .wrap{padding:60px 16px 70px;} /* tightened */
+      nav{font-size:12px;}
       .embed iframe{height:560px;}
       #eneremit-activity-widget .eneremit-value{
         white-space:normal;
@@ -189,7 +190,7 @@
     }
 
     @media (max-height:430px) and (orientation:landscape){
-      .wrap{padding:40px 16px 40px;}
+      .wrap{padding:40px 16px 40px;} /* match the tighter rhythm */
       .embed iframe{height:360px;}
     }
   </style>
