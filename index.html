@@ -7,63 +7,41 @@
   <title>Music</title>
 
   <style>
-    *,*::before,*::after{
-      box-sizing:border-box;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
+    *,*::before,*::after{box-sizing:border-box;}
     html{
       font-size:62.5%;
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
     }
-
     body{
       margin:0;
       font-family:"Times New Roman", Times, serif;
       font-size:1.2rem;
-      color:#2c2c2c;
-      background:#ffffff;
       line-height:1.8;
+      color:#2c2c2c;
+      background:#fff;
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
       overflow-x:hidden;
+      text-align:left !important;
     }
 
     .wrap{
       max-width:750px;
       margin:0 auto;
       padding:100px 16px 80px;
+      text-align:left !important;
     }
 
     a, a:link, a:visited{
       color:#613d12;
       text-decoration:none;
-      transition:opacity .2s ease;
-    }
-
-    a:hover, a:active{
-      opacity:.85;
-      color:#613d12;
-    }
-
-    .mp-sidebar{
-      margin:0 0 18px 0;
-    }
-
-    .mp-desc{
-      margin-top:10px;
-      display:inline-block;
-      font-size:11px;
-      line-height:1.2;
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
     }
-
-    .mp-desc a{
-      text-decoration:underline;
+    a:hover, a:active{
       color:#613d12;
+      opacity:.85;
     }
 
     :root{
@@ -78,94 +56,45 @@
       --gp-artist-size:11px;
     }
 
-    #glenplayer07{
-      position:relative;
-      width:100%;
-      z-index:1;
-      margin:0;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
-    }
-
-    #glenplayer07 .flamingo{
-      display:flex;
-      align-items:center;
-    }
-
-    #glenplayer07 .circleofdeath{
-      width:var(--gp-size);
-      height:var(--gp-size);
-      border-radius:999px;
-      position:relative;
-      flex:0 0 auto;
-    }
-
-    #glenplayer07 .tinfoil{
-      width:100%;
-      height:100%;
-      border-radius:999px;
-      background:conic-gradient(var(--gp-fill) calc(var(--p,0)*1turn), var(--gp-fill) 0);
-    }
-
+    #glenplayer07{position:relative;width:100%;margin:0;text-align:left !important;}
+    #glenplayer07 .flamingo{display:flex;align-items:center;}
+    #glenplayer07 .circleofdeath{width:var(--gp-size);height:var(--gp-size);border-radius:999px;position:relative;flex:0 0 auto;}
+    #glenplayer07 .tinfoil{width:100%;height:100%;border-radius:999px;background:conic-gradient(var(--gp-fill) calc(var(--p,0)*1turn), var(--gp-fill) 0);}
     #glenplayer07 .cherry{
-      position:absolute;
-      inset:var(--gp-ring);
-      border-radius:999px;
-      background:var(--gp-fill);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      -webkit-tap-highlight-color:transparent;
-      user-select:none;
+      position:absolute;inset:var(--gp-ring);border-radius:999px;background:var(--gp-fill);
+      display:flex;align-items:center;justify-content:center;cursor:pointer;
+      -webkit-tap-highlight-color:transparent;user-select:none;
     }
-
-    #glenplayer07 .material-icons{
-      font-size:14px;
-      color:var(--gp-icon);
-      line-height:1;
-    }
-
-    #glenplayer07 .music-info{
-      margin-left:var(--gp-gap);
-      line-height:1.1;
-      min-width:0;
-    }
-
+    #glenplayer07 .material-icons{font-size:14px;color:var(--gp-icon);line-height:1;}
+    #glenplayer07 .music-info{margin-left:var(--gp-gap);line-height:1.1;min-width:0;}
     #glenplayer07 .song-name{
-      font-family:inherit;
-      font-size:var(--gp-song-size);
-      text-transform:none;
-      letter-spacing:0;
-      color:var(--gp-song);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-family:inherit;font-size:var(--gp-song-size);color:var(--gp-song);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    #glenplayer07 .artist-name{
+      margin-top:3px;font-family:inherit;font-size:var(--gp-artist-size);color:var(--gp-artist);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    #glenplayer07 .artist-name{
-      margin-top:3px;
-      font-family:inherit;
-      font-size:var(--gp-artist-size);
-      color:var(--gp-artist);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+    .mp-desc{
+      margin-top:10px;
+      display:block;
+      font-size:11px;
+      line-height:1.2;
+      text-align:left !important;
     }
+    .mp-desc a{color:#613d12;text-decoration:underline;}
+    .mp-desc, .mp-desc *{text-align:left !important;}
 
     #eneremit-activity-widget{
-      width:auto;
-      max-width:100%;
-      display:inline-block;
-      font-family:inherit;
+      width:100%;
+      display:block;
       font-size:11px;
       line-height:1.35;
       margin-top:0.4rem;
-      overflow:hidden;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
       --eneremit-label-color:#222222;
       --eneremit-value-color:#613d12;
+      text-align:left !important;
     }
 
     #eneremit-activity-widget a,
@@ -174,7 +103,6 @@
       color:inherit;
       text-decoration:none;
     }
-
     #eneremit-activity-widget a:hover,
     #eneremit-activity-widget a:active{
       color:inherit;
@@ -186,35 +114,25 @@
       display:grid;
       grid-template-columns:max-content minmax(0,1fr);
       align-items:baseline;
-      margin-top:0;
-      margin-bottom:0.25rem;
+      margin:0 0 0.25rem 0;
       column-gap:0;
+      text-align:left !important;
     }
     #eneremit-activity-widget .eneremit-row:last-child{margin-bottom:0;}
 
-    #eneremit-activity-widget .eneremit-label,
-    #eneremit-activity-widget .eneremit-value{
-      font-size:inherit;
-      line-height:inherit;
-    }
-
     #eneremit-activity-widget .eneremit-label{
       color:var(--eneremit-label-color);
-      font-weight:400;
       white-space:nowrap;
+      font-weight:400;
     }
-
-    #eneremit-activity-widget .eneremit-label::after{
-      content:"\00a0";
-    }
-
+    #eneremit-activity-widget .eneremit-label::after{content:"\00a0";}
     #eneremit-activity-widget .eneremit-value{
       color:var(--eneremit-value-color);
-      font-weight:400;
       min-width:0;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+      font-weight:400;
     }
 
     nav{
@@ -225,21 +143,13 @@
       line-height:1.2;
       display:flex;
       gap:10px;
-      flex-wrap:nowrap;
-      overflow:hidden;
-      white-space:nowrap;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
+      flex-wrap:wrap;
+      white-space:normal;
+      text-align:left !important;
     }
+    nav a{flex:0 0 auto;}
 
-    nav a{
-      flex:0 0 auto;
-    }
-
-    .embed{
-      margin-top:22px;
-    }
-
+    .embed{margin-top:22px;}
     .embed iframe{
       width:100%;
       height:475px;
@@ -249,32 +159,18 @@
     }
 
     @media (max-width:820px){
-      .wrap{padding:80px 16px 70px;}
+      .wrap{padding:70px 16px 60px;}
       nav{gap:8px;font-size:12px;}
+      .mp-desc{font-size:12px;}
       #eneremit-activity-widget{font-size:12px;}
+      :root{--gp-song-size:12px;--gp-artist-size:12px;}
       .embed iframe{height:520px;}
     }
 
     @media (max-width:520px){
-      html{font-size:72%;}
       .wrap{padding:70px 16px 60px;}
-      nav{gap:7px;font-size:12px;}
-      #eneremit-activity-widget{font-size:12px;}
+      nav{font-size:12px;}
       .embed iframe{height:560px;}
-    }
-
-    @media (max-height:430px) and (orientation:landscape){
-      html{font-size:62.5%;}
-      .wrap{padding:40px 16px 40px;}
-      .embed iframe{height:360px;}
-    }
-
-    @media only screen and (max-width: 820px){
-      #eneremit-activity-widget{
-        width:100%;
-        display:block;
-        overflow:visible;
-      }
       #eneremit-activity-widget .eneremit-value{
         white-space:normal;
         overflow:visible;
@@ -284,47 +180,50 @@
         hyphens:auto;
       }
     }
+
+    @media (max-height:430px) and (orientation:landscape){
+      .wrap{padding:40px 16px 40px;}
+      .embed iframe{height:360px;}
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="mp-sidebar">
-      <div id="glenplayer07" data-audio="https://file.garden/ZmN8fWXA7EDNZ5td/Both%20Sides%20Now.mp3">
-        <div class="flamingo">
-          <div class="circleofdeath">
-            <div class="tinfoil" id="gp-ring"></div>
-            <div class="cherry" id="gp-btn" role="button" tabindex="0" aria-label="Play">
-              <i class="material-icons" id="gp-icon">play_arrow</i>
-            </div>
-          </div>
-          <div class="music-info">
-            <div class="song-name">Both Sides Now</div>
-            <div class="artist-name">Joni Mitchell</div>
+    <div id="glenplayer07" data-audio="https://file.garden/ZmN8fWXA7EDNZ5td/Both%20Sides%20Now.mp3">
+      <div class="flamingo">
+        <div class="circleofdeath">
+          <div class="tinfoil" id="gp-ring"></div>
+          <div class="cherry" id="gp-btn" role="button" tabindex="0" aria-label="Play">
+            <i class="material-icons" id="gp-icon">play_arrow</i>
           </div>
         </div>
+        <div class="music-info">
+          <div class="song-name">Both Sides Now</div>
+          <div class="artist-name">Joni Mitchell</div>
+        </div>
       </div>
+    </div>
 
-      <div class="mp-desc">
-        <a href="https://lnk.bio/homo" target="_blank" rel="noopener noreferrer">Julián</a>, Puerto Rico
-      </div>
+    <div class="mp-desc">
+      <a href="https://lnk.bio/homo" target="_blank" rel="noopener noreferrer">Julián</a>, Puerto Rico
+    </div>
 
-      <div id="eneremit-activity-widget" aria-live="polite">
-        <a class="eneremit-row" id="eneremit-gr-link" href="https://www.goodreads.com/user/show/138343303" target="_blank" rel="noopener noreferrer">
-          <span class="eneremit-label" id="eneremit-gr-label">Now Reading:</span>
-          <span class="eneremit-value" id="eneremit-gr-text" data-seed="">-</span>
-        </a>
+    <div id="eneremit-activity-widget" aria-live="polite">
+      <a class="eneremit-row" id="eneremit-gr-link" href="https://www.goodreads.com/user/show/138343303" target="_blank" rel="noopener noreferrer">
+        <span class="eneremit-label" id="eneremit-gr-label">Now Reading:</span>
+        <span class="eneremit-value" id="eneremit-gr-text" data-seed="">-</span>
+      </a>
 
-        <a class="eneremit-row" id="eneremit-lb-link" href="https://letterboxd.com/eneremit/" target="_blank" rel="noopener noreferrer">
-          <span class="eneremit-label">Last Watched:</span>
-          <span class="eneremit-value" id="eneremit-lb-text" data-seed="">-</span>
-        </a>
+      <a class="eneremit-row" id="eneremit-lb-link" href="https://letterboxd.com/eneremit/" target="_blank" rel="noopener noreferrer">
+        <span class="eneremit-label">Last Watched:</span>
+        <span class="eneremit-value" id="eneremit-lb-text" data-seed="">-</span>
+      </a>
 
-        <a class="eneremit-row" id="eneremit-lfm-link" href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">
-          <span class="eneremit-label" id="eneremit-lfm-label">Now Listening:</span>
-          <span class="eneremit-value" id="eneremit-lfm-text" data-seed="">-</span>
-        </a>
-      </div>
+      <a class="eneremit-row" id="eneremit-lfm-link" href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">
+        <span class="eneremit-label" id="eneremit-lfm-label">Now Listening:</span>
+        <span class="eneremit-value" id="eneremit-lfm-text" data-seed="">-</span>
+      </a>
     </div>
 
     <nav aria-label="music links">
@@ -569,7 +468,6 @@
             }
 
             if(setIfGood(el.lfText, data.lastfm.text)) saveCached(LS.lfText, data.lastfm.text);
-
             if(el.lfLink && safe(data.lastfm.url)){ el.lfLink.href=data.lastfm.url; saveCached(LS.lfUrl, data.lastfm.url); }
           }
         }catch(e){}
@@ -577,7 +475,6 @@
 
       loadCachedOrSeed();
       refreshFromEndpoint();
-
       setInterval(refreshFromEndpoint, 60*1000);
 
       document.addEventListener("visibilitychange", function(){
