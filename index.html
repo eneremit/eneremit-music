@@ -6,6 +6,8 @@
   <link rel="icon" href="/favicon.ico">
   <title></title>
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <style>
     *,*::before,*::after{
       box-sizing:border-box;
@@ -29,20 +31,14 @@
       padding:100px 16px 80px;
     }
 
-    a,
-    a:link,
-    a:visited,
-    a:hover,
-    a:active{
+    a, a:visited{
       color:#613d12;
       text-decoration:none;
       transition:opacity .2s ease;
     }
-
-    a:hover{
-      opacity:.85;
-      color:#613d12;
-    }
+    a:hover, a:active, a:focus{opacity:.85;color:#613d12;text-decoration:none;}
+    a:focus-visible{outline:1px solid rgba(0,0,0,.2); outline-offset:3px; border-radius:2px;}
+    a:-webkit-any-link{color:#613d12;}
 
     .mp-desc{
       margin-top:10px;
@@ -50,9 +46,91 @@
       font-size:11px;
       line-height:1.2;
     }
+    .mp-desc a{ text-decoration:underline; }
 
-    .mp-desc a{
-      text-decoration:underline;
+    :root{
+      --gp-size:38px;
+      --gp-ring:2px;
+      --gp-fill:#613d12;
+      --gp-icon:#f9f9f9;
+      --gp-song:#613d12;
+      --gp-artist:#222222;
+      --gp-gap:14px;
+      --gp-song-size:11px;
+      --gp-artist-size:11px;
+    }
+
+    #glenplayer07{
+      position:relative;
+      width:100%;
+      z-index:1;
+      margin:0 0 10px 0;
+    }
+
+    #glenplayer07 .flamingo{
+      display:flex;
+      align-items:center;
+    }
+
+    #glenplayer07 .circleofdeath{
+      width:var(--gp-size);
+      height:var(--gp-size);
+      border-radius:999px;
+      position:relative;
+      flex:0 0 auto;
+    }
+
+    #glenplayer07 .tinfoil{
+      width:100%;
+      height:100%;
+      border-radius:999px;
+      background:conic-gradient(var(--gp-fill) calc(var(--p,0)*1turn), var(--gp-fill) 0);
+    }
+
+    #glenplayer07 .cherry{
+      position:absolute;
+      inset:var(--gp-ring);
+      border-radius:999px;
+      background:var(--gp-fill);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      user-select:none;
+    }
+
+    #glenplayer07 .material-icons{
+      font-size:14px;
+      color:var(--gp-icon);
+      line-height:1;
+    }
+
+    #glenplayer07 .music-info{
+      margin-left:var(--gp-gap);
+      line-height:1.1;
+      min-width:0;
+    }
+
+    #glenplayer07 .song-name{
+      font-family:inherit;
+      font-size:var(--gp-song-size);
+      text-transform:none;
+      letter-spacing:0;
+      color:var(--gp-song);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    #glenplayer07 .artist-name{
+      margin-top:3px;
+      font-family:inherit;
+      font-size:var(--gp-artist-size);
+      color:var(--gp-artist);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     #eneremit-activity-widget{
@@ -86,6 +164,16 @@
       text-overflow:ellipsis;
     }
 
+    #eneremit-activity-widget .eneremit-value a{
+      color:inherit;
+      text-decoration:none;
+      border:0;
+    }
+    #eneremit-activity-widget .eneremit-value a:hover{
+      text-decoration:none;
+      opacity:.85;
+    }
+
     nav{
       margin-top:22px;
       padding-bottom:12px;
@@ -114,6 +202,21 @@
 <body>
   <div class="wrap">
 
+    <div id="glenplayer07" data-audio="https://file.garden/ZmN8fWXA7EDNZ5td/Both%20Sides%20Now.mp3">
+      <div class="flamingo">
+        <div class="circleofdeath">
+          <div class="tinfoil" id="gp-ring"></div>
+          <div class="cherry" id="gp-btn" role="button" tabindex="0" aria-label="Play">
+            <i class="material-icons" id="gp-icon">play_arrow</i>
+          </div>
+        </div>
+        <div class="music-info">
+          <div class="song-name">Both Sides Now</div>
+          <div class="artist-name">Joni Mitchell</div>
+        </div>
+      </div>
+    </div>
+
     <div class="mp-desc">
       <a href="https://lnk.bio/homo" target="_blank" rel="noopener noreferrer">Julián</a>, Puerto Rico
     </div>
@@ -121,37 +224,120 @@
     <div id="eneremit-activity-widget">
       <div class="eneremit-row">
         <span class="eneremit-label">Now Reading:</span>
-        <span class="eneremit-value">Mommie Dearest - Christina Crawford</span>
+        <span class="eneremit-value">
+          <a href="https://www.goodreads.com/user/show/138343303" target="_blank" rel="noopener noreferrer">
+            Mommie Dearest - Christina Crawford
+          </a>
+        </span>
       </div>
+
       <div class="eneremit-row">
         <span class="eneremit-label">Last Watched:</span>
-        <span class="eneremit-value">Ella McCay (2025) dir. James L. Brooks</span>
+        <span class="eneremit-value">
+          <a href="https://letterboxd.com/eneremit/" target="_blank" rel="noopener noreferrer">
+            Ella McCay (2025) dir. James L. Brooks
+          </a>
+        </span>
       </div>
+
       <div class="eneremit-row">
-        <span class="eneremit-label">Last Listened To:</span>
-        <span class="eneremit-value">White Feather Hawk Tail Deer Hunter - Lana Del Rey</span>
+        <span class="eneremit-label">Now Listening:</span>
+        <span class="eneremit-value">
+          <a href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">
+            White Feather Hawk Tail Deer Hunter - Lana Del Rey
+          </a>
+        </span>
       </div>
     </div>
 
     <nav>
       <a href="https://eneremit.blog/">Home</a>
-      <a href="https://open.spotify.com/user/jorgejulianrdz" target="_blank">Spotify</a>
-      <a href="https://www.last.fm/user/eneremit" target="_blank">Last.fm</a>
-      <a href="https://www.discogs.com/user/eneremit" target="_blank">Discogs</a>
-      <a href="https://stats.fm/user/eneremit?range=lifetime" target="_blank">Stats.fm</a>
-      <a href="https://rateyourmusic.com/~eneremit" target="_blank">RYM</a>
-      <a href="https://www.albumoftheyear.org/user/eneremit/" target="_blank">AOTY</a>
-      <a href="https://musicboard.app/eneremit?rel=copy" target="_blank">Musicboard</a>
-      <a href="https://airbuds.fm/eneremit" target="_blank">Airbuds</a>
+      <a href="https://open.spotify.com/user/jorgejulianrdz" target="_blank" rel="noopener noreferrer">Spotify</a>
+      <a href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">Last.fm</a>
+      <a href="https://www.discogs.com/user/eneremit" target="_blank" rel="noopener noreferrer">Discogs</a>
+      <a href="https://stats.fm/user/eneremit?range=lifetime" target="_blank" rel="noopener noreferrer">Stats.fm</a>
+      <a href="https://rateyourmusic.com/~eneremit" target="_blank" rel="noopener noreferrer">RYM</a>
+      <a href="https://www.albumoftheyear.org/user/eneremit/" target="_blank" rel="noopener noreferrer">AOTY</a>
+      <a href="https://musicboard.app/eneremit?rel=copy" target="_blank" rel="noopener noreferrer">Musicboard</a>
+      <a href="https://airbuds.fm/eneremit" target="_blank" rel="noopener noreferrer">Airbuds</a>
     </nav>
 
     <div class="embed">
-      <iframe src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk"
+      <iframe
+        src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk"
         loading="lazy"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
       </iframe>
     </div>
 
   </div>
+
+  <script>
+  (function(){
+    function ready(fn){
+      if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
+      else fn();
+    }
+
+    ready(function(){
+      var root=document.getElementById("glenplayer07");
+      if(!root) return;
+
+      var ring=document.getElementById("gp-ring");
+      var btn=document.getElementById("gp-btn");
+      var icon=document.getElementById("gp-icon");
+      var src=root.getAttribute("data-audio")||"";
+
+      var audio=document.createElement("audio");
+      audio.preload="metadata";
+      audio.playsInline=true;
+      audio.setAttribute("playsinline","");
+      audio.setAttribute("webkit-playsinline","");
+      audio.src=src;
+
+      var playing=false;
+
+      function setProg(){
+        var d=audio.duration;
+        var t=audio.currentTime;
+        var p=(d && isFinite(d) && d>0) ? (t/d) : 0;
+        ring.style.setProperty("--p", String(p));
+      }
+
+      function setUI(isPlaying){
+        playing=isPlaying;
+        icon.textContent=isPlaying ? "pause" : "play_arrow";
+        btn.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
+      }
+
+      function toggle(){
+        if(!playing){
+          audio.play().then(function(){ setUI(true); }).catch(function(){ setUI(false); });
+        }else{
+          audio.pause();
+          setUI(false);
+        }
+      }
+
+      btn.addEventListener("click", toggle);
+      btn.addEventListener("keydown", function(e){
+        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); }
+      });
+
+      audio.addEventListener("timeupdate", setProg);
+      audio.addEventListener("loadedmetadata", setProg);
+      audio.addEventListener("ended", function(){
+        audio.currentTime=0;
+        setProg();
+        setUI(false);
+      });
+      audio.addEventListener("pause", function(){ setUI(false); });
+      audio.addEventListener("play", function(){ setUI(true); });
+
+      setUI(false);
+      setProg();
+    });
+  })();
+  </script>
 </body>
 </html>
