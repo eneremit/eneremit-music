@@ -327,7 +327,8 @@
   (function(){
     "use strict";
 
-    var ENDPOINT="https://eneremit-widget.eneremit.workers.dev/";
+    var ENDPOINT="https://eneremit-widget.eneremit.workers.dev/json";
+    var POLL_MS=90*1000;
 
     function ready(fn){
       if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
@@ -389,7 +390,8 @@
         lbUrl:PFX+"lb_url",
         lfText:PFX+"lf_text",
         lfUrl:PFX+"lf_url",
-        lfLabel:PFX+"lf_label"
+        lfLabel:PFX+"lf_label",
+        etag:PFX+"etag"
       };
 
       function loadCachedOrSeed(){
@@ -438,10 +440,35 @@
         }catch(e){}
       }
 
+      function saveEtag(et){
+        try{
+          var v=safe(et);
+          if(!v) return;
+          localStorage.setItem(LS.etag, v);
+        }catch(e){}
+      }
+
+      function loadEtag(){
+        try{
+          return safe(localStorage.getItem(LS.etag));
+        }catch(e){
+          return "";
+        }
+      }
+
       async function fetchJSON(){
-        var url=ENDPOINT + (ENDPOINT.indexOf("?")>=0 ? "&" : "?") + "_=" + Date.now();
-        var res=await fetch(url, { cache:"no-store", credentials:"omit" });
+        var headers={};
+        var et=loadEtag();
+        if(et) headers["if-none-match"]=et;
+
+        var res=await fetch(ENDPOINT, { cache:"no-store", credentials:"omit", headers: headers });
+
+        if(res.status===304) return null;
         if(!res.ok) throw new Error("HTTP "+res.status);
+
+        var newEtag=safe(res.headers.get("etag"));
+        if(newEtag) saveEtag(newEtag);
+
         return await res.json();
       }
 
@@ -481,15 +508,28 @@
         }catch(e){}
       }
 
+      function startPolling(){
+        if(typeof document.hidden==="boolean" && document.hidden) return null;
+        return setInterval(refreshFromEndpoint, POLL_MS);
+      }
+
       loadCachedOrSeed();
       refreshFromEndpoint();
-      setInterval(refreshFromEndpoint, 60*1000);
+
+      var pollId=startPolling();
 
       document.addEventListener("visibilitychange", function(){
-        if(!document.hidden) refreshFromEndpoint();
+        if(document.hidden){
+          if(pollId) { clearInterval(pollId); pollId=null; }
+        }else{
+          refreshFromEndpoint();
+          if(!pollId) pollId=startPolling();
+        }
       });
     });
   })();
   </script>
+</body>
+</html>
 </body>
 </html>
