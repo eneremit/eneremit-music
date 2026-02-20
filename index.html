@@ -16,11 +16,7 @@
 
   <style>
     *,*::before,*::after{box-sizing:border-box;}
-    html{
-      font-size:62.5%;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
-    }
+    html{font-size:62.5%;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
     body{
       margin:0;
       font-family:"Times New Roman", Times, serif;
@@ -33,169 +29,58 @@
       overflow-x:hidden;
       text-align:left !important;
     }
-
-    .wrap{
-      max-width:750px;
-      margin:0 auto;
-      padding:70px 16px 80px; /* tightened to match pic 2 */
-      text-align:left !important;
-    }
-
-    a, a:link, a:visited{
-      color:#613d12;
-      text-decoration:none;
-      -webkit-text-size-adjust:100%;
-      text-size-adjust:100%;
-    }
-    a:hover, a:active{
-      color:#613d12;
-      opacity:.85;
-    }
-
+    .wrap{max-width:750px;margin:0 auto;padding:70px 16px 80px;text-align:left !important;}
+    a,a:link,a:visited{color:#613d12;text-decoration:none;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+    a:hover,a:active{color:#613d12;opacity:.85;}
     :root{
-      --gp-size:38px;
-      --gp-ring:2px;
-      --gp-fill:#613d12;
-      --gp-icon:#f9f9f9;
-      --gp-song:#613d12;
-      --gp-artist:#222222;
-      --gp-gap:14px;
-      --gp-song-size:11px;
-      --gp-artist-size:11px;
+      --gp-size:38px;--gp-ring:2px;--gp-fill:#613d12;--gp-icon:#f9f9f9;
+      --gp-song:#613d12;--gp-artist:#222222;--gp-gap:14px;
+      --gp-song-size:11px;--gp-artist-size:11px;
     }
-
     #glenplayer07{position:relative;width:100%;margin:0;text-align:left !important;}
     #glenplayer07 .flamingo{display:flex;align-items:center;}
     #glenplayer07 .circleofdeath{width:var(--gp-size);height:var(--gp-size);border-radius:999px;position:relative;flex:0 0 auto;}
     #glenplayer07 .tinfoil{width:100%;height:100%;border-radius:999px;background:conic-gradient(var(--gp-fill) calc(var(--p,0)*1turn), var(--gp-fill) 0);}
-    #glenplayer07 .cherry{
-      position:absolute;inset:var(--gp-ring);border-radius:999px;background:var(--gp-fill);
-      display:flex;align-items:center;justify-content:center;cursor:pointer;
-      -webkit-tap-highlight-color:transparent;user-select:none;
-    }
+    #glenplayer07 .cherry{position:absolute;inset:var(--gp-ring);border-radius:999px;background:var(--gp-fill);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;}
     #glenplayer07 .material-icons{font-size:14px;color:var(--gp-icon);line-height:1;}
     #glenplayer07 .music-info{margin-left:var(--gp-gap);line-height:1.1;min-width:0;}
-    #glenplayer07 .song-name{
-      font-family:inherit;font-size:var(--gp-song-size);color:var(--gp-song);
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
-    #glenplayer07 .artist-name{
-      margin-top:3px;font-family:inherit;font-size:var(--gp-artist-size);color:var(--gp-artist);
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
-
-    .mp-desc{
-      margin-top:14px; /* slightly tighter */
-      display:block;
-      font-size:11px;
-      line-height:1.2;
-      text-align:left !important;
-    }
+    #glenplayer07 .song-name{font-family:inherit;font-size:var(--gp-song-size);color:var(--gp-song);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    #glenplayer07 .artist-name{margin-top:3px;font-family:inherit;font-size:var(--gp-artist-size);color:var(--gp-artist);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .mp-desc{margin-top:14px;display:block;font-size:11px;line-height:1.2;text-align:left !important;}
     .mp-desc a{color:#613d12;text-decoration:underline;}
-    .mp-desc, .mp-desc *{text-align:left !important;}
-
-    #eneremit-activity-widget{
-      width:100%;
-      display:block;
-      font-size:11px;
-      line-height:1.55;
-      margin-top:12px; /* slightly tighter */
-      --eneremit-label-color:#222222;
-      --eneremit-value-color:#613d12;
-      text-align:left !important;
-    }
-
-    #eneremit-activity-widget a,
-    #eneremit-activity-widget a:link,
-    #eneremit-activity-widget a:visited{
-      color:inherit;
-      text-decoration:none;
-    }
-    #eneremit-activity-widget a:hover,
-    #eneremit-activity-widget a:active{
-      color:inherit;
-      opacity:1;
-    }
-
-    #eneremit-activity-widget .eneremit-row{
-      width:100%;
-      display:grid;
-      grid-template-columns:max-content minmax(0,1fr);
-      align-items:baseline;
-      margin:0.55em 0 0 0; /* more like pic 2 line spacing */
-      column-gap:0;
-      text-align:left !important;
-    }
+    .mp-desc,.mp-desc *{text-align:left !important;}
+    #eneremit-activity-widget{width:100%;display:block;font-size:11px;line-height:1.55;margin-top:12px;--eneremit-label-color:#222222;--eneremit-value-color:#613d12;text-align:left !important;}
+    #eneremit-activity-widget a,#eneremit-activity-widget a:link,#eneremit-activity-widget a:visited{color:inherit;text-decoration:none;}
+    #eneremit-activity-widget a:hover,#eneremit-activity-widget a:active{color:inherit;opacity:1;}
+    #eneremit-activity-widget .eneremit-row{width:100%;display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:baseline;margin:0.55em 0 0 0;column-gap:0;text-align:left !important;}
     #eneremit-activity-widget .eneremit-row:first-child{margin-top:0;}
-
-    #eneremit-activity-widget .eneremit-label{
-      color:var(--eneremit-label-color);
-      white-space:nowrap;
-      font-weight:400;
-    }
+    #eneremit-activity-widget .eneremit-label{color:var(--eneremit-label-color);white-space:nowrap;font-weight:400;}
     #eneremit-activity-widget .eneremit-label::after{content:"\00a0";}
-    #eneremit-activity-widget .eneremit-value{
-      color:var(--eneremit-value-color);
-      min-width:0;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      font-weight:400;
-    }
-
-    nav{
-      margin-top:22px; /* closer to pic 2 */
-      padding-bottom:12px; /* closer to pic 2 */
-      border-bottom:1px solid #ededed;
-      font-size:11px;
-      line-height:1.2;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      white-space:normal;
-      text-align:left !important;
-    }
+    #eneremit-activity-widget .eneremit-value{color:var(--eneremit-value-color);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400;}
+    nav{margin-top:22px;padding-bottom:12px;border-bottom:1px solid #ededed;font-size:11px;line-height:1.2;display:flex;gap:12px;flex-wrap:wrap;white-space:normal;text-align:left !important;}
     nav a{flex:0 0 auto;}
-
-    .embed{margin-top:22px;} /* closer to pic 2 */
-    .embed iframe{
-      width:100%;
-      height:475px;
-      border:0;
-      border-radius:8px;
-      display:block;
-    }
-
+    .embed{margin-top:22px;}
+    .embed iframe{width:100%;height:475px;border:0;border-radius:8px;display:block;}
     @media (max-width:820px){
-      .wrap{padding:60px 16px 70px;} /* tightened */
+      .wrap{padding:60px 16px 70px;}
       nav{gap:10px;font-size:12px;}
       .mp-desc{font-size:12px;}
       #eneremit-activity-widget{font-size:12px;}
       :root{--gp-song-size:12px;--gp-artist-size:12px;}
       .embed iframe{height:520px;}
     }
-
     @media (max-width:520px){
-      .wrap{padding:60px 16px 70px;} /* tightened */
+      .wrap{padding:60px 16px 70px;}
       nav{font-size:12px;}
       .embed iframe{height:560px;}
-      #eneremit-activity-widget .eneremit-value{
-        white-space:normal;
-        overflow:visible;
-        text-overflow:clip;
-        overflow-wrap:break-word;
-        word-break:normal;
-        hyphens:auto;
-      }
+      #eneremit-activity-widget .eneremit-value{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:break-word;word-break:normal;hyphens:auto;}
     }
-
     @media (max-height:430px) and (orientation:landscape){
-      .wrap{padding:40px 16px 40px;} /* match the tighter rhythm */
+      .wrap{padding:40px 16px 40px;}
       .embed iframe{height:360px;}
     }
   </style>
 </head>
-
 <body>
   <div class="wrap">
     <div id="glenplayer07" data-audio="https://file.garden/ZmN8fWXA7EDNZ5td/Both%20Sides%20Now.mp3">
@@ -222,12 +107,10 @@
         <span class="eneremit-label" id="eneremit-gr-label">Now Reading:</span>
         <span class="eneremit-value" id="eneremit-gr-text" data-seed="">-</span>
       </a>
-
       <a class="eneremit-row" id="eneremit-lb-link" href="https://letterboxd.com/eneremit/" target="_blank" rel="noopener noreferrer">
-        <span class="eneremit-label">Last Watched:</span>
+        <span class="eneremit-label" id="eneremit-lb-label">Last Watched:</span>
         <span class="eneremit-value" id="eneremit-lb-text" data-seed="">-</span>
       </a>
-
       <a class="eneremit-row" id="eneremit-lfm-link" href="https://www.last.fm/user/eneremit" target="_blank" rel="noopener noreferrer">
         <span class="eneremit-label" id="eneremit-lfm-label">Now Listening:</span>
         <span class="eneremit-value" id="eneremit-lfm-text" data-seed="">-</span>
@@ -247,289 +130,119 @@
     </nav>
 
     <div class="embed">
-      <iframe
-        src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk"
-        loading="lazy"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/78ZLjWFR6XSwKmo6AGuQNk" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 
-  <script>
-  (function(){
-    function ready(fn){
-      if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
-      else fn();
-    }
-
-    ready(function(){
-      var root=document.getElementById("glenplayer07");
-      if(!root) return;
-
-      var ring=document.getElementById("gp-ring");
-      var btn=document.getElementById("gp-btn");
-      var icon=document.getElementById("gp-icon");
-      var src=root.getAttribute("data-audio")||"";
-
-      var audio=document.createElement("audio");
-      audio.preload="metadata";
-      audio.playsInline=true;
-      audio.setAttribute("playsinline","");
-      audio.setAttribute("webkit-playsinline","");
-      audio.src=src;
-
-      var playing=false;
-
-      function setProg(){
-        var d=audio.duration;
-        var t=audio.currentTime;
-        var p=(d && isFinite(d) && d>0) ? (t/d) : 0;
-        ring.style.setProperty("--p", String(p));
-      }
-
-      function setUI(isPlaying){
-        playing=isPlaying;
-        icon.textContent=isPlaying ? "pause" : "play_arrow";
-        btn.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
-      }
-
-      function toggle(){
-        if(!playing){
-          audio.play().then(function(){ setUI(true); }).catch(function(){ setUI(false); });
-        }else{
-          audio.pause();
-          setUI(false);
-        }
-      }
-
-      btn.addEventListener("click", toggle);
-      btn.addEventListener("keydown", function(e){
-        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); }
-      });
-
-      audio.addEventListener("timeupdate", setProg);
-      audio.addEventListener("loadedmetadata", setProg);
-      audio.addEventListener("ended", function(){
-        audio.currentTime=0;
-        setProg();
-        setUI(false);
-      });
-      audio.addEventListener("pause", function(){ setUI(false); });
-      audio.addEventListener("play", function(){ setUI(true); });
-
-      setUI(false);
-      setProg();
-    });
-  })();
-  </script>
-
-  <script>
-  (function(){
-    "use strict";
-
-    var ENDPOINT="https://eneremit-widget.eneremit.workers.dev/json";
-    var POLL_MS=90*1000;
-
-    function ready(fn){
-      if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", fn);
-      else fn();
-    }
-
-    function safe(s){ return (s==null ? "" : String(s)).trim(); }
-
-    function isBadText(t){
-      t=safe(t);
-      return !t || t==="-" || t==="—";
-    }
-
-    function setIfGood(node, text){
-      var t=safe(text);
-      if(!node || isBadText(t)) return false;
-      node.textContent=t;
-      try{ node.setAttribute("data-seed", t); }catch(e){}
-      return true;
-    }
-
-    function getSeed(node){
-      var t="";
-      try{ t=safe(node && node.getAttribute && node.getAttribute("data-seed")); }catch(e){}
-      return isBadText(t) ? "" : t;
-    }
-
-    function setSeedIfEmpty(node, text){
-      try{
-        if(node && !safe(node.getAttribute("data-seed"))) node.setAttribute("data-seed", safe(text));
-      }catch(e){}
-    }
-
-    function getStorageKeyPrefix(){
-      var host=safe(location && location.hostname).toLowerCase();
-      return host ? ("eneremit_widget@"+host+"::") : "eneremit_widget@unknown::";
-    }
-
-    ready(function(){
-      var el={
-        root:document.getElementById("eneremit-activity-widget"),
-        grText:document.getElementById("eneremit-gr-text"),
-        grLink:document.getElementById("eneremit-gr-link"),
-        grLabel:document.getElementById("eneremit-gr-label"),
-        lbText:document.getElementById("eneremit-lb-text"),
-        lbLink:document.getElementById("eneremit-lb-link"),
-        lfText:document.getElementById("eneremit-lfm-text"),
-        lfLink:document.getElementById("eneremit-lfm-link"),
-        lfLabel:document.getElementById("eneremit-lfm-label")
-      };
-      if(!el.root || !el.grText || !el.lbText || !el.lfText) return;
-
-      var PFX=getStorageKeyPrefix();
-      var LS={
-        grText:PFX+"gr_text",
-        grUrl:PFX+"gr_url",
-        grLabel:PFX+"gr_label",
-        lbText:PFX+"lb_text",
-        lbUrl:PFX+"lb_url",
-        lfText:PFX+"lf_text",
-        lfUrl:PFX+"lf_url",
-        lfLabel:PFX+"lf_label",
-        etag:PFX+"etag"
-      };
-
-      function loadCachedOrSeed(){
-        var any=false;
-
-        try{
-          any = setIfGood(el.grText, localStorage.getItem(LS.grText)) || any;
-          any = setIfGood(el.lbText, localStorage.getItem(LS.lbText)) || any;
-
-          var grL=safe(localStorage.getItem(LS.grLabel));
-          if(el.grLabel && !isBadText(grL)) { el.grLabel.textContent=grL; setSeedIfEmpty(el.grLabel, grL); any=true; }
-
-          var lfT=safe(localStorage.getItem(LS.lfText));
-          if(!isBadText(lfT)) { el.lfText.textContent=lfT; setSeedIfEmpty(el.lfText, lfT); any=true; }
-
-          var lfL=safe(localStorage.getItem(LS.lfLabel));
-          if(!isBadText(lfL)) { el.lfLabel.textContent=lfL; setSeedIfEmpty(el.lfLabel, lfL); any=true; }
-
-          var grU=safe(localStorage.getItem(LS.grUrl)); if(el.grLink && grU) el.grLink.href=grU;
-          var lbU=safe(localStorage.getItem(LS.lbUrl)); if(el.lbLink && lbU) el.lbLink.href=lbU;
-          var lfU=safe(localStorage.getItem(LS.lfUrl)); if(el.lfLink && lfU) el.lfLink.href=lfU;
-        }catch(e){}
-
-        if(!any){
-          setIfGood(el.grText, getSeed(el.grText));
-          setIfGood(el.lbText, getSeed(el.lbText));
-
-          if(el.grLabel){
-            var grLabSeed=getSeed(el.grLabel);
-            if(!isBadText(grLabSeed)) el.grLabel.textContent=grLabSeed;
-          }
-
-          var lfSeed=getSeed(el.lfText);
-          if(!isBadText(lfSeed)) el.lfText.textContent=lfSeed;
-
-          var lfLabSeed=getSeed(el.lfLabel);
-          if(!isBadText(lfLabSeed)) el.lfLabel.textContent=lfLabSeed;
-        }
-      }
-
-      function saveCached(key, value){
-        try{
-          var v=safe(value);
-          if(isBadText(v)) return;
-          localStorage.setItem(key, v);
-        }catch(e){}
-      }
-
-      function saveEtag(et){
-        try{
-          var v=safe(et);
-          if(!v) return;
-          localStorage.setItem(LS.etag, v);
-        }catch(e){}
-      }
-
-      function loadEtag(){
-        try{
-          return safe(localStorage.getItem(LS.etag));
-        }catch(e){
-          return "";
-        }
-      }
-
-      async function fetchJSON(){
-        var headers={};
-        var et=loadEtag();
-        if(et) headers["if-none-match"]=et;
-
-        var res=await fetch(ENDPOINT, { cache:"no-store", credentials:"omit", headers: headers });
-
-        if(res.status===304) return null;
-        if(!res.ok) throw new Error("HTTP "+res.status);
-
-        var newEtag=safe(res.headers.get("etag"));
-        if(newEtag) saveEtag(newEtag);
-
-        return await res.json();
-      }
-
-      async function refreshFromEndpoint(){
-        try{
-          var data=await fetchJSON();
-          if(!data) return;
-
-          if(data.goodreads){
-            var grLabel=safe(data.goodreads.label);
-            if(el.grLabel && !isBadText(grLabel)){
-              el.grLabel.textContent=grLabel;
-              setSeedIfEmpty(el.grLabel, grLabel);
-              saveCached(LS.grLabel, grLabel);
-            }
-
-            if(setIfGood(el.grText, data.goodreads.text)) saveCached(LS.grText, data.goodreads.text);
-            if(el.grLink && safe(data.goodreads.url)){ el.grLink.href=data.goodreads.url; saveCached(LS.grUrl, data.goodreads.url); }
-          }
-
-          if(data.letterboxd){
-            if(setIfGood(el.lbText, data.letterboxd.text)) saveCached(LS.lbText, data.letterboxd.text);
-            if(el.lbLink && safe(data.letterboxd.url)){ el.lbLink.href=data.letterboxd.url; saveCached(LS.lbUrl, data.letterboxd.url); }
-          }
-
-          if(data.lastfm){
-            var label=safe(data.lastfm.label);
-            if(!isBadText(label)){
-              el.lfLabel.textContent=label;
-              setSeedIfEmpty(el.lfLabel, label);
-              saveCached(LS.lfLabel, label);
-            }
-
-            if(setIfGood(el.lfText, data.lastfm.text)) saveCached(LS.lfText, data.lastfm.text);
-            if(el.lfLink && safe(data.lastfm.url)){ el.lfLink.href=data.lastfm.url; saveCached(LS.lfUrl, data.lastfm.url); }
-          }
-        }catch(e){}
-      }
-
-      function startPolling(){
-        if(typeof document.hidden==="boolean" && document.hidden) return null;
-        return setInterval(refreshFromEndpoint, POLL_MS);
-      }
-
-      loadCachedOrSeed();
-      refreshFromEndpoint();
-
-      var pollId=startPolling();
-
-      document.addEventListener("visibilitychange", function(){
-        if(document.hidden){
-          if(pollId) { clearInterval(pollId); pollId=null; }
-        }else{
-          refreshFromEndpoint();
-          if(!pollId) pollId=startPolling();
-        }
-      });
-    });
-  })();
-  </script>
-</body>
-</html>
+<script>
+(function(){
+"use strict";
+var ENDPOINT="https://eneremit-widget.eneremit.workers.dev/json";
+var POLL_MS=90*1000;
+function ready(fn){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",fn);else fn();}
+function safe(s){return(s==null?"":String(s)).trim();}
+function isBadText(t){t=safe(t);return!t||t==="-"||t==="—";}
+function setIfGood(node,text){var t=safe(text);if(!node||isBadText(t))return false;node.textContent=t;try{node.setAttribute("data-seed",t);}catch(e){}return true;}
+function getSeed(node){var t="";try{t=safe(node&&node.getAttribute&&node.getAttribute("data-seed"));}catch(e){}return isBadText(t)?"":t;}
+function setSeedIfEmpty(node,text){try{if(node&&!safe(node.getAttribute("data-seed")))node.setAttribute("data-seed",safe(text));}catch(e){}}
+function getStorageKeyPrefix(){var host=safe(location&&location.hostname).toLowerCase();return host?("eneremit_widget@"+host+"::"):"eneremit_widget@unknown::";}
+ready(function(){
+var el={
+root:document.getElementById("eneremit-activity-widget"),
+grText:document.getElementById("eneremit-gr-text"),
+grLink:document.getElementById("eneremit-gr-link"),
+grLabel:document.getElementById("eneremit-gr-label"),
+lbText:document.getElementById("eneremit-lb-text"),
+lbLink:document.getElementById("eneremit-lb-link"),
+lbLabel:document.getElementById("eneremit-lb-label"),
+lfText:document.getElementById("eneremit-lfm-text"),
+lfLink:document.getElementById("eneremit-lfm-link"),
+lfLabel:document.getElementById("eneremit-lfm-label")
+};
+if(!el.root||!el.grText||!el.lbText||!el.lfText)return;
+var PFX=getStorageKeyPrefix();
+var LS={
+grText:PFX+"gr_text",
+grUrl:PFX+"gr_url",
+grLabel:PFX+"gr_label",
+lbText:PFX+"lb_text",
+lbUrl:PFX+"lb_url",
+lbLabel:PFX+"lb_label",
+lfText:PFX+"lf_text",
+lfUrl:PFX+"lf_url",
+lfLabel:PFX+"lf_label",
+etag:PFX+"etag"
+};
+function loadCachedOrSeed(){
+var any=false;
+try{
+any=setIfGood(el.grText,localStorage.getItem(LS.grText))||any;
+any=setIfGood(el.lbText,localStorage.getItem(LS.lbText))||any;
+var grL=safe(localStorage.getItem(LS.grLabel));
+if(el.grLabel&&!isBadText(grL)){el.grLabel.textContent=grL;setSeedIfEmpty(el.grLabel,grL);any=true;}
+var lbL=safe(localStorage.getItem(LS.lbLabel));
+if(el.lbLabel&&!isBadText(lbL)){el.lbLabel.textContent=lbL;setSeedIfEmpty(el.lbLabel,lbL);any=true;}
+var lfT=safe(localStorage.getItem(LS.lfText));
+if(!isBadText(lfT)){el.lfText.textContent=lfT;setSeedIfEmpty(el.lfText,lfT);any=true;}
+var lfL=safe(localStorage.getItem(LS.lfLabel));
+if(!isBadText(lfL)){el.lfLabel.textContent=lfL;setSeedIfEmpty(el.lfLabel,lfL);any=true;}
+var grU=safe(localStorage.getItem(LS.grUrl));if(el.grLink&&grU)el.grLink.href=grU;
+var lbU=safe(localStorage.getItem(LS.lbUrl));if(el.lbLink&&lbU)el.lbLink.href=lbU;
+var lfU=safe(localStorage.getItem(LS.lfUrl));if(el.lfLink&&lfU)el.lfLink.href=lfU;
+}catch(e){}
+if(!any){
+setIfGood(el.grText,getSeed(el.grText));
+setIfGood(el.lbText,getSeed(el.lbText));
+if(el.grLabel){var grLabSeed=getSeed(el.grLabel);if(!isBadText(grLabSeed))el.grLabel.textContent=grLabSeed;}
+if(el.lbLabel){var lbLabSeed=getSeed(el.lbLabel);if(!isBadText(lbLabSeed))el.lbLabel.textContent=lbLabSeed;}
+var lfSeed=getSeed(el.lfText);if(!isBadText(lfSeed))el.lfText.textContent=lfSeed;
+var lfLabSeed=getSeed(el.lfLabel);if(!isBadText(lfLabSeed))el.lfLabel.textContent=lfLabSeed;
+}
+}
+function saveCached(key,value){try{var v=safe(value);if(isBadText(v))return;localStorage.setItem(key,v);}catch(e){}}
+function saveEtag(et){try{var v=safe(et);if(!v)return;localStorage.setItem(LS.etag,v);}catch(e){}}
+function loadEtag(){try{return safe(localStorage.getItem(LS.etag));}catch(e){return"";}}
+async function fetchJSON(){
+var headers={};var et=loadEtag();if(et)headers["if-none-match"]=et;
+var res=await fetch(ENDPOINT,{cache:"no-store",credentials:"omit",headers:headers});
+if(res.status===304)return null;
+if(!res.ok)throw new Error("HTTP "+res.status);
+var newEtag=safe(res.headers.get("etag"));if(newEtag)saveEtag(newEtag);
+return await res.json();
+}
+async function refreshFromEndpoint(){
+try{
+var data=await fetchJSON();if(!data)return;
+if(data.goodreads){
+var grLabel=safe(data.goodreads.label);
+if(el.grLabel&&!isBadText(grLabel)){el.grLabel.textContent=grLabel;setSeedIfEmpty(el.grLabel,grLabel);saveCached(LS.grLabel,grLabel);}
+if(setIfGood(el.grText,data.goodreads.text))saveCached(LS.grText,data.goodreads.text);
+if(el.grLink&&safe(data.goodreads.url)){el.grLink.href=data.goodreads.url;saveCached(LS.grUrl,data.goodreads.url);}
+}
+if(data.letterboxd){
+var lbLabel=safe(data.letterboxd.label);
+if(el.lbLabel&&!isBadText(lbLabel)){el.lbLabel.textContent=lbLabel;setSeedIfEmpty(el.lbLabel,lbLabel);saveCached(LS.lbLabel,lbLabel);}
+if(setIfGood(el.lbText,data.letterboxd.text))saveCached(LS.lbText,data.letterboxd.text);
+if(el.lbLink&&safe(data.letterboxd.url)){el.lbLink.href=data.letterboxd.url;saveCached(LS.lbUrl,data.letterboxd.url);}
+}
+if(data.lastfm){
+var label=safe(data.lastfm.label);
+if(!isBadText(label)){el.lfLabel.textContent=label;setSeedIfEmpty(el.lfLabel,label);saveCached(LS.lfLabel,label);}
+if(setIfGood(el.lfText,data.lastfm.text))saveCached(LS.lfText,data.lastfm.text);
+if(el.lfLink&&safe(data.lastfm.url)){el.lfLink.href=data.lastfm.url;saveCached(LS.lfUrl,data.lastfm.url);}
+}
+}catch(e){}
+}
+function startPolling(){if(typeof document.hidden==="boolean"&&document.hidden)return null;return setInterval(refreshFromEndpoint,POLL_MS);}
+loadCachedOrSeed();
+refreshFromEndpoint();
+var pollId=startPolling();
+document.addEventListener("visibilitychange",function(){
+if(document.hidden){if(pollId){clearInterval(pollId);pollId=null;}}
+else{refreshFromEndpoint();if(!pollId)pollId=startPolling();}
+});
+});
+})();
+</script>
 </body>
 </html>
